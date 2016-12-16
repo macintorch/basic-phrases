@@ -1,5 +1,6 @@
 package ainor.com.my.basicphrases;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,12 @@ public class MainActivity extends AppCompatActivity {
         int id = view.getId();
         String ourId = "";
         ourId = view.getResources().getResourceEntryName(id);
+
+        int resourceId = getResources().getIdentifier(ourId,"raw", "ainor.com.my.basicphrases");
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, resourceId);
+
+        mediaPlayer.start();
 
         Log.i("Button Tapped", ourId);
     }
